@@ -1,4 +1,11 @@
-# E6691 Spring 2023
+# Person Removal
+## E6691 Spring 2023
+
+Visiting tourist attracrtions with a lot of people in your viewfinder? Our "person removal" pipeline is here to help!
+
+![My Image](demo_original.jpg)
+![My Image](demo_removed.jpg)
+
 Requirements
 The libraries used for this project:
 pandas, urllib.request, numpy, skimage.io, torch, matplotlib.pyplot, torchvision, pycocotools, PIL, transformers, diffusers
