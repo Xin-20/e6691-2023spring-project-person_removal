@@ -1,5 +1,4 @@
-# Person Removal
-## E6691 Spring 2023
+# Person Removal, E6691 Spring 2023
 
 Visiting tourist attractions with a lot of people in your viewfinder? Our "person removal" pipeline is here to help!
 
