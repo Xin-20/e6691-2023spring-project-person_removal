@@ -15,12 +15,39 @@ def yolo_detection(yolov8, image):
     - detection_boxes, bounding boxes contains persons in xyxy format
     '''
     # make prediction for persons (cls and bbx)
-    preds = yolov8(image, classes=0)
+    preds = yolov8(image, classes=(0, 26, 27, 30))
     
     # unzip cls and bbx
     for pred in preds: 
         detection_boxes = [[int(x[0]), int(x[1]), int(x[2]), int(x[3])] for x in list(pred.boxes.xyxy)]
     
+    return detection_boxes
+
+def detr_detection(processor, detr, image):
+    '''
+    Use DETR to detect persons.
+    Args:
+    - processor, detr, detr model
+    - image, torch tensor
+    Return:
+    - detection_boxes, bounding boxes contains persons in xyxy format
+    '''
+    # make prediction
+    inputs = processor(images=image, return_tensors="pt")
+    outputs = detr(**inputs)
+    results = processor.post_process_object_detection(outputs, target_sizes=[(1, 1)])[0]
+    
+    _, h, w = image.shape
+    detection_boxes = []
+    for i, label in enumerate(results['labels']):
+        if label==1 or label==27 or label==28 or label==31:
+            detection_boxes.append((
+                int(results['boxes'][i][0].detach().numpy()*w),
+                int(results['boxes'][i][1].detach().numpy()*h),
+                int(results['boxes'][i][2].detach().numpy()*w),
+                int(results['boxes'][i][3].detach().numpy()*h),
+            ))
+            
     return detection_boxes
 
 def quick_mask(image, person_boxes, verbose=False):
