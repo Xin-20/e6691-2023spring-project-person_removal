@@ -49,6 +49,7 @@ torch, torchvision, pillow, transformers, [segment_anything](https://github.com/
 │   └── README.md
 ├── model_ckpt
 │   └── sam_vit_h_4b8939.pth
+├── model.png
 └── utils
     ├── dataset.py
     ├── misc.py
