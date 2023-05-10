@@ -16,7 +16,7 @@
 
 # Our result
   - Sample input
-  - 
+
 ![My Image](demo_original.jpg)
   - Sample output
 
@@ -26,3 +26,32 @@
 The libraries used for this project:
 
 torch, torchvision, pillow, transformers, [segment_anything](https://github.com/facebookresearch/segment-anything), diffusers.
+
+# Organization of this directory
+```
+./
+├── README.md
+├── demo.ipynb
+├── demo_original.jpg
+├── demo_removed.jpg
+├── dataset
+│   ├── COCO
+│   └── PennFudanPed
+├── images
+│   ├── IMG_2508.jpg
+│   ├── IMG_2510.jpg
+│   ├── IMG_2511.jpg
+│   ├── IMG_2517.jpg
+│   ├── IMG_2518.jpg
+│   ├── IMG_2521.jpg
+│   └── README.md
+├── model_ckpt
+│   └── sam_vit_h_4b8939.pth
+└── utils
+    ├── dataset.py
+    ├── misc.py
+    ├── person_segmentation.py
+    └── pipeline.py
+
+5 directories, 16 files
+```
