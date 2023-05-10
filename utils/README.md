@@ -1,1 +1,1 @@
-This folder is for Utility functions.
+This folder is for utility functions.
