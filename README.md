@@ -14,6 +14,8 @@
   - Our model detects person with DETR, generate masks by SAM, generate prompt by vit-gpt2, and inpaint the image with Stable Diffusion.
   - The model is built with PyTorch 2.0.0.
 
+![My Image](model.png)
+
 # Our result
   - Sample input
 
